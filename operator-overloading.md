@@ -16,7 +16,7 @@ Functions that overload operators need to be marked with the `operator` modifier
 
 Further we describe the conventions that regulate operator overloading for different operators. -->
 
-Язык Kotlin позволяет нам реализовывать предопределённый набор операторов для наших типов. Эти операторы имеют фиксированное символическое представление (вроде `+` или `*`) и фиксированные [приоритеты](grammar.html#precedence). Для реализации оператора мы предоставляем [функцию-член](functions.html#member-functions) или [функцию-расширение](extensions.html) с фиксированным именем и с соответствующим типом, т. е. левосторонним типом для бинарных операций или типом аргумента для унарных оперций. Функции, которые перегружают операторы, должны быть отмечены модификатором `operator`.
+Язык Kotlin позволяет нам реализовывать предопределённый набор операторов для наших типов. Эти операторы имеют фиксированное символическое представление (вроде `+` или `*`) и фиксированные [приоритеты](grammar.html#precedence). Для реализации оператора мы предоставляем [функцию-член](functions.html#member-functions) или [функцию-расширение](extensions.html) с фиксированным именем и с соответствующим типом, т. е. левосторонним типом для бинарных операций или типом аргумента для унарных операций. Функции, которые перегружают операторы, должны быть отмечены модификатором `operator`.
 
 Далее мы опишем соглашения, которые регламентируют перегрузку операторов для разных типов операторов.
 
@@ -34,7 +34,7 @@ Further we describe the conventions that regulate operator overloading for diffe
 
 <!--This table says that when the compiler processes, for example, an expression `+a`, it performs the following steps:-->
 
-Эта таблица демонстрирует, что когда компилятор обрабатывает, к примеру, выражение `+a`, он оcуществляет следующие действия:
+Эта таблица демонстрирует, что когда компилятор обрабатывает, к примеру, выражение `+a`, он осуществляет следующие действия:
 <!--
  Determines the type of `a`, let it be `T`.
  Looks up a function `unaryPlus()` with the `operator` modifier and no parameters for the receiver `T`, i.e. a member function or an extension function.
@@ -72,7 +72,7 @@ println(-point)  // выведет "(-10, -20)"
 
 <!-- The `inc()` and `dec()` functions must return a value, which will be assigned to the variable on which the
 `++` or `--` operation was used. They shouldn't mutate the object on which the `inc` or `dec` was invoked. -->
-Функции `inc()` и `dec()` должны возвращать значение, которое будет присвоено переменной, к которой была применёна
+Функции `inc()` и `dec()` должны возвращать значение, которое будет присвоено переменной, к которой была применена
 операция `++` или `--` . Они не должны пытаться изменять сам объект, для которого `inc` или `dec` были вызваны.
 
 <!--The compiler performs the following steps for resolution of an operator in the *postfix* form, e.g. `a++`:
